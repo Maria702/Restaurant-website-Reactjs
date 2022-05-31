@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import {Features} from "./components/Features";
+import {NewFeatures }from "./components/Features";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Products from "./components/Products";
+import { ProductData, DessertData , FastFoodData} from "./components/Products/data";
+
+import { GlobalStyle } from "./GlobalStyle";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+    <Router>
+      <GlobalStyle />
+
+    <Hero/>
+    <Products heading='Choose your Favorite' data={ProductData} />
+   <NewFeatures />
+   <Products heading='Stressed Spelled Backward is "Dessert"' data={DessertData} /> 
+    <Features />
+    <Products heading="Fast Food doesn't have to be Junk Food" data={FastFoodData} />
+    <Footer />
+    </Router>
   );
 }
-
+ 
 export default App;
